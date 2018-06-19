@@ -30,4 +30,25 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
+
+    <!-- Style for miwok text view -->
+    <style name="MiwokTVStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/word_text_size</item>
+        <item name="android:textColor">@color/word_text_color</item>
+    </style>
+
+    <!-- Style for default text view -->
+    <style name="DefaultTVStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">top</item>
+        <item name="android:textSize">@dimen/word_text_size</item>
+        <item name="android:textColor">@color/word_text_color</item>
+    </style>
 </resources>

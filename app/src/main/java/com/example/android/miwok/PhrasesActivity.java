@@ -1,7 +1,10 @@
 package com.example.android.miwok;
 
+import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,23 +24,37 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(w);
 */
         // A more concise way to write the above two lines of code
-        words.add(new Word("Where are you going?","minto wuksus"));
-        words.add(new Word("What is your name?","tinnә oyaase'nә"));
-        words.add(new Word("My name is...","oyaaset..."));
-        words.add(new Word("How are you feeling?","michәksәs?"));
-        words.add(new Word("I'm feeling good.","kuchi achit"));
-        words.add(new Word("Are you coming?","әәnәs'aa?"));
-        words.add(new Word("Yes, I'm coming.","hәә’ әәnәm"));
-        words.add(new Word("I'm coming.","әәnәm"));
-        words.add(new Word("Let's go.","yoowutis"));
-        words.add(new Word("Come here.","әnni'nem"));
+        words.add(new Word("Where are you going?", "minto wuksus"));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә"));
+        words.add(new Word("My name is...", "oyaaset..."));
+        words.add(new Word("How are you feeling?", "michәksәs?"));
+        words.add(new Word("I'm feeling good.", "kuchi achit"));
+        words.add(new Word("Are you coming?", "әәnәs'aa?"));
+        words.add(new Word("Yes, I'm coming.", "hәә’ әәnәm"));
+        words.add(new Word("I'm coming.", "әәnәm"));
+        words.add(new Word("Let's go.", "yoowutis"));
+        words.add(new Word("Come here.", "әnni'nem"));
 
         //ListView and ArrayAdapter Word example - Section 4, Lesson 3.27
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_phrases);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(adapter);
 
+        // enable up navigation
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
