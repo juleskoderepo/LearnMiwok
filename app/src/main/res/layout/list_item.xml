@@ -1,40 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- todo: to show pressed state, alt solution would be to wrap all below in a View and add background -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/tan_background"
-    android:orientation="horizontal"
-    android:minHeight="@dimen/list_item_height"
-    >
+    android:minHeight="@dimen/list_item_height">
 
     <ImageView
         android:id="@+id/word_image"
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
         android:layout_centerVertical="true"
-        android:src="@mipmap/ic_launcher"
         android:contentDescription="@string/word_image_content_desc"
-        />
+        tools:src="@mipmap/ic_launcher" />
 
-    <LinearLayout
-        android:id="@+id/word_listlayout"
+
+    <FrameLayout
+        android:id="@+id/list_framelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:orientation="vertical"
-        tools:background="@color/category_numbers">
+        android:layout_height="@dimen/list_item_height"
+        android:layout_toEndOf="@id/word_image"
+        android:layout_toRightOf="@id/word_image"
+        >
 
-        <TextView
-            android:id="@+id/miwok_tv"
-            style="@style/MiwokTVStyle"
-            tools:text="lutti"
-            />
+        <LinearLayout
+            android:id="@+id/word_listlayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:background="?android:attr/selectableItemBackground"
+            tools:background="@color/category_numbers">
 
-        <TextView
-            android:id="@+id/default_tv"
-            style="@style/DefaultTVStyle"
-            tools:text="one"/>
+            <TextView
+                android:id="@+id/miwok_tv"
+                style="@style/MiwokTVStyle"
+                tools:text="lutti" />
 
-    </LinearLayout>
-</LinearLayout>
+            <TextView
+                android:id="@+id/default_tv"
+                style="@style/DefaultTVStyle"
+                tools:text="one" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/play_arrow_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:src="@drawable/ic_play_arrow"
+        tools:ignore="contentDescription" />
+
+</RelativeLayout>

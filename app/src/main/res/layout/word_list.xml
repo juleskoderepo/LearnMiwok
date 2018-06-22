@@ -24,7 +24,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     />
-
+<!-- todo: could add android:drawSelectorOnTop="true" to show pressed state -->
+<!-- todo: if above is done, need to update list_item.xml and WordAdapter -->
 
 <!-- Experimenting with GridView -->
 <!--
