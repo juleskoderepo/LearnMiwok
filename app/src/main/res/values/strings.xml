@@ -29,4 +29,7 @@
     <string name="category_family">Family Members</string>
 
     <string name="word_image_content_desc">Image associated to word</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
