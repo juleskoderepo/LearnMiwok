@@ -15,18 +15,13 @@
  */
 package com.example.android.miwok;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
-
+import android.widget.TableLayout;
 
 public class MainActivity extends AppCompatActivity {
-    TextView numbers;
-    TextView family;
-    TextView colors;
-    TextView phrases;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,50 +30,19 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        // Find the View that shows the numbers category and capture the click event
-        numbers = (TextView) findViewById(R.id.numbers);
-        numbers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view){
-                Intent openNumbers = new Intent (MainActivity.this,NumbersActivity.class);
-                startActivity(openNumbers);
-            }
-        });
+        // Find the view pager that will allow user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        //Find the View that shows the family members category and capture the click event
-        family = (TextView) findViewById(R.id.family);
+        // Create an adapter that knows which fragment to display on each page
+        CategoryFragmentPagerAdapter adapter = new CategoryFragmentPagerAdapter(getSupportFragmentManager(),this);
 
-        family.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent openFamily = new Intent (MainActivity.this,FamilyMembersActivity.class);
-                startActivity(openFamily);
-            }
-        });
+        // Set the adapter on the view pager
+        viewPager.setAdapter(adapter);
 
-        //Find the view that shows the colors category and capture the click event
-        colors = (TextView) findViewById(R.id.colors);
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
-        colors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openColors = new Intent (MainActivity.this,ColorsActivity.class);
-                startActivity(openColors);
-            }
-        });
-
-        //Find the View that shows the phrases category and capture the click event
-        phrases = (TextView) findViewById(R.id.phrases);
-
-        phrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openPhrases = new Intent (MainActivity.this,PhrasesActivity.class);
-                startActivity(openPhrases);
-            }
-        });
     }
-
-
 
 }

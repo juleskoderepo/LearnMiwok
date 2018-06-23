@@ -37,4 +37,7 @@
 
     <!-- Text Color for words -->
     <color name="word_text_color">#FFFFFF</color>
+
+    <!-- Text color for selected tab -->
+    <color name="tab_selectedText_color">#A8A19E</color>
 </resources>

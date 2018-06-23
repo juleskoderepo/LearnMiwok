@@ -1,3 +1,4 @@
+
 <!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +19,15 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/primary_dark_color</item>
+        <!-- define style to remove shadow from app bar. see below -->
+        <item name="actionBarStyle">@style/MiwokAppBarStyle</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- App Bar Style -->
+    <style name="MiwokAppBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!-- Remove shadow below the app bar -->
+        <item name="elevation">0dp</item>
     </style>
 
     <!-- Style for a category of vocabulary words -->
@@ -49,6 +59,18 @@
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">top</item>
         <item name="android:textSize">@dimen/word_text_size</item>
+        <item name="android:textColor">@color/word_text_color</item>
+    </style>
+
+    <!-- Style for a tab that displays a category name -->
+    <style name="CategoryTab" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/word_text_color</item>
+        <item name="tabSelectedTextColor">@color/word_text_color</item>
+        <item name="tabTextAppearance">@style/CategoryTabTextAppearance</item>
+    </style>
+
+    <!-- Text appearance style for a category tab -->
+    <style name="CategoryTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textColor">@color/word_text_color</item>
     </style>
 </resources>
